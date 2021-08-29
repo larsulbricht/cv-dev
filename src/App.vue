@@ -1,28 +1,119 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app id="inspire">
+    <side-navigation></side-navigation>
+    <v-main>
+      <!--           
+      <v-img  class="parallax pt-5" height="50vh" contain  src="/profilfoto.jpg" >
+        <h1 class="text-h1 ml-6 black-text">Lars <br> Ulbricht</h1>
+      </v-img>-->
+
+      <v-card class="ml-0 mt-0">
+        <v-img class="parallax pt-5" height="100vh">
+          <h1 id="black-text" class="text-h1 ml-6">
+            Lars <br />
+            Ulbricht
+          </h1>
+          <div v-if="this.scrolled == 0" id="down_arrow">
+ 
+          <v-icon @click="$vuetify.goTo('#about_head')" class="mt-30 chevron bottom" color="black" size="6rem"
+              >mdi-chevron-down</v-icon
+            >
+
+          </div>
+        </v-img>
+      </v-card>
+
+      <div id="lang_control" class="d-flex justify-end">
+        <v-btn
+          :disabled="$vuetify.lang.current == 'ja'"
+          elevation="2"
+          @click="$vuetify.lang.current = 'ja'"
+          >JP</v-btn
+        >
+        <v-btn
+          :disabled="$vuetify.lang.current == 'de'"
+          elevation="2"
+          @click="$vuetify.lang.current = 'de'"
+          >DE</v-btn
+        >
+        <v-btn
+          :disabled="$vuetify.lang.current == 'en'"
+          elevation="2"
+          @click="$vuetify.lang.current = 'en'"
+          >EN</v-btn
+        >
+      </div>
+      <v-banner class="mt-4" elevation="3" single-line id="about_head"
+        ><v-icon class="mr-4">mdi-message</v-icon> Motto
+      </v-banner>
+      <v-card></v-card>
+      <v-card-text class="pl-13 mt-4 mb-4" id="about_me_text">
+        <v-icon class="mr-2 pb-8 quote-icon">mdi-format-quote-open</v-icon>
+        Automate <br />
+        <br />
+        <br />
+        the boring part. 
+        <v-icon class="mr-2 pb-8 quote-icon">mdi-format-quote-close</v-icon>
+      </v-card-text>
+
+      <about-me></about-me>
+
+      <v-col>
+        <education></education>
+        <work></work>
+        <hobby></hobby>
+        <skills></skills>
+        <certificate></certificate>
+        <links></links>
+        <contact></contact>
+      </v-col>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Education from "./components/Education.vue";
+import SideNavigation from "./components/SideNavigation.vue";
+import AboutMe from "./components/AboutMe.vue";
+import Work from "./components/Work.vue";
+import Hobby from "./components/Hobby.vue";
+import Skills from "./components/Skills.vue";
+import Certificate from "./components/Certificate.vue";
+import Links from "./components/Links.vue";
+import Contact from "./components/Contact.vue";
 
 export default {
-  name: 'App',
+  name: "Homepage",
   components: {
-    HelloWorld
-  }
-}
+    Education,
+    SideNavigation,
+    AboutMe,
+    Work,
+    Hobby,
+    Skills,
+    Certificate,
+    Contact,
+    Links,
+  },
+  theme: { dark: true },
+  data() {
+    return {
+      scrolled: 0,
+    };
+  },  created() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  destroyed() {
+    window.removeEventListener("scroll", this.handleScroll);
+  },
+  methods: {
+    handleScroll(e) {
+      this.scrolled = e.target.documentElement.scrollTop;
+    },
+  },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import "./assets/styles/style.css";
 </style>

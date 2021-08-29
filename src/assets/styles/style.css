@@ -1,0 +1,156 @@
+
+
+.parallax {
+   
+  /* Set a specific height */
+  background-image: url("../sitefoto-left.jpg");
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: right -200px center;
+  background-repeat: repeat-x;
+  background-size: cover;
+  }
+
+  #black-text {
+    font-size: 6rem !important;
+      background-color: none !important;
+      text-shadow: 1px 1px white;
+      font-weight: 100 !important;
+      color:black;
+  }
+
+  #lang_control {
+    position:fixed;
+    bottom: 0;
+    right: 0%;
+    z-index: 9;
+  }
+
+  .drawer-index {
+    z-index: 5;
+  }
+
+  #about_me_text {
+    position:sticky !important;
+    bottom: 200px !important;
+    z-index: 4 !important;
+    mix-blend-mode: difference;
+    color: white;
+    font-size: 4rem;
+    font-weight: 50;
+    line-height: 1rem;
+  }
+
+  .chevron:focus {
+    opacity: 0;
+  }
+
+  .chevron::before {
+    border-style: solid;
+    border-width: 0.05em 0.05em 0 0;
+    content: '';
+    display: inline-block;
+    height: 0.45em;
+    left: 0.15em;
+    position: relative;
+    top: 0.15em;
+    transform: rotate(-45deg);
+    vertical-align: top;
+    width: 0.45em;
+  }
+
+  
+  .chevron.bottom:before {
+    top: 0;
+    transform: rotate(135deg);
+  }
+
+#down_arrow {
+  left: 15%;
+  position:absolute;
+  bottom: 12%;
+}
+
+ 
+
+
+  @media (max-width:930px) {
+
+.v-subheader {
+    /* align-items: center; */
+    /* display: flex; */
+    /* height: 48px; */
+    font-size: 0.875rem;
+    font-weight: 400;
+    margin-left: 15px;
+    /* padding: 0 16px 0 16px; */
+}
+
+    .v-timeline--dense:not(.v-timeline--reverse):before {
+      display: none;
+    }
+
+    .v-timeline-item__body {
+      max-width: none !important;
+    }
+
+    .v-timeline-item__divider {
+      display: none;
+    }
+
+    .quote-icon {
+      line-height: 1rem !important;
+    }
+  
+    
+    .chevron.bottom:before {
+      left: 136%;
+      top: -41vh;
+    }
+    
+  #about_me_text {
+    font-size: 7vw;
+    font-weight: 50;
+    bottom: 57% !important;
+    padding-left: 0rem;
+    line-height: 0rem;
+  }
+    .parallax {
+
+
+   
+      /* Set a specific height */
+
+      background-image: url("../sitefoto-top.jpg");
+      /* Create the parallax scrolling effect */
+      background-attachment: fixed;
+      background-position: bottom 60% center;
+      background-size: cover;
+      }
+
+      #black-text {
+        font-size: 3rem !important;
+        background-color: none !important;
+        text-shadow: 1px 1px #8f8484;
+        font-weight: 100 !important;
+        line-height: 16vw;
+        
+
+    }
+    }
+
+
+
+    @media (max-width:500px) {
+      /* Bei jedem größeren Monitor kommen neue Regeln hinzu */
+
+   
+      }
+
+      @media (min-width:500px) and (max-width:930px) {
+        /* Bei jedem größeren Monitor kommen neue Regeln hinzu */
+  
+          #black-text {
+            font-size: 3rem !important;
+        }
+        }
